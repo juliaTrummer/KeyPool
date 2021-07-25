@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "450770266982",
+    "project_id": "keypool-77ca8",
+    "storage_bucket": "keypool-77ca8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450770266982:android:aa12fdf32680ed4e6636a7",
+        "android_client_info": {
+          "package_name": "com.mobappdev.keypool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450770266982-ufv312is89j1uf5jcte0sh6dttbbbtj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTk-Hfka2mG8oqUfEr5K0w_C56zq50Dmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450770266982-ufv312is89j1uf5jcte0sh6dttbbbtj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
