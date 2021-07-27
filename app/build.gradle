@@ -31,6 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+        }
+    }
 }
 
 dependencies {
@@ -43,6 +49,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.1'
 
     implementation 'com.scwang.wave:MultiWaveHeader:1.0.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.4.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import com.mobappdev.keypool.PwList.PasswordView
 import com.mobappdev.keypool.R
 import com.mobappdev.keypool.Register
 
@@ -26,7 +27,8 @@ class Login : AppCompatActivity() {
         infoText = findViewById(R.id.registerInfoText)
 
         button.setOnClickListener() {
-
+            val intent = Intent(this, PasswordView::class.java)
+            startActivity(intent)
         }
 
         infoText.setOnClickListener() {
