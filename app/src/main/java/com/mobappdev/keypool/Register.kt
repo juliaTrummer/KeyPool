@@ -44,6 +44,7 @@ class Register : AppCompatActivity() {
         infoText = findViewById(R.id.loginInfoText)
 
         emailPasswordActivity = EmailPasswordActivity()
+        emailPasswordActivity.init(applicationContext, this)
 
         button.setOnClickListener(){
             register()
@@ -61,15 +62,13 @@ class Register : AppCompatActivity() {
         if(strongPW && validEmail){
             passwordField.error = null
             emailField.error = null
-            emailPasswordActivity.createAccount(password.text.toString(), email.text.toString())
+            emailPasswordActivity.createAccount(email.text.toString(), password.text.toString())
+            Toast.makeText(this, "Register is a success.", Toast.LENGTH_SHORT).show()
         } else if(strongPW){
             passwordField.error = null
         } else if(validEmail){
             emailField.error = null
         }
-        //register
-        //toast
-        Toast.makeText(this, "Register is a success.", Toast.LENGTH_SHORT).show()
     }
 
     private fun validateUserName(){

@@ -16,6 +16,7 @@ class Login : AppCompatActivity() {
     private lateinit var password: TextInputEditText
     private lateinit var button: Button
     private lateinit var infoText: TextView
+    private lateinit var epa : EmailPasswordActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +26,11 @@ class Login : AppCompatActivity() {
         password = findViewById(R.id.password)
         button = findViewById(R.id.loginButton)
         infoText = findViewById(R.id.registerInfoText)
+        epa = EmailPasswordActivity()
+        epa.init(applicationContext, this)
 
         button.setOnClickListener() {
-            val intent = Intent(this, PasswordView::class.java)
-            startActivity(intent)
+            epa.signIn(email.text.toString(), password.text.toString())
         }
 
         infoText.setOnClickListener() {
