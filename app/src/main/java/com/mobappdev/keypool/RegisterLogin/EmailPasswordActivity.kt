@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -25,11 +27,12 @@ class EmailPasswordActivity {
         auth = FirebaseAuth.getInstance()
     }
 
-     fun isLoggedIn() {
+     fun isLoggedIn() : Boolean{
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            reload();
-        }
+         if (currentUser != null) {
+             return true
+         }
+         return false
     }
 
     fun createAccount(email: String, password: String) {
@@ -47,7 +50,8 @@ class EmailPasswordActivity {
             }
     }
 
-     fun signIn(email: String, password: String) {
+    //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
+     fun signIn(email: String, password: String, emailField : TextInputLayout, passwordField : TextInputLayout) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
@@ -56,10 +60,14 @@ class EmailPasswordActivity {
                     val user = auth.currentUser
                     updateUI(activity)
                 } else {
-                    // If sign in fails, display a message to the user.
+                    if(task.exception.toString().contains("email address is badly formatted")){
+                        passwordField.error = null
+                        emailField.error = "Please enter a valid Email!"
+                    }else if(task.exception.toString().contains("The password is invalid or the user does not have a password")){
+                        passwordField.error = "Please enter valid credentials!"
+                    }
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(context, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }

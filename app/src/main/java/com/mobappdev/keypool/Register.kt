@@ -1,21 +1,16 @@
 package com.mobappdev.keypool
 
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.animation.Animation
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.mobappdev.keypool.PwList.PasswordView
 import com.mobappdev.keypool.RegisterLogin.EmailPasswordActivity
 import com.mobappdev.keypool.RegisterLogin.Login
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
 
 class Register : AppCompatActivity() {
 
@@ -30,9 +25,16 @@ class Register : AppCompatActivity() {
     private lateinit var infoText : TextView
     private lateinit var emailPasswordActivity: EmailPasswordActivity
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        emailPasswordActivity = EmailPasswordActivity()
+        emailPasswordActivity.init(applicationContext, this)
+        
+        if(emailPasswordActivity.isLoggedIn()){
+            val intent = Intent(this, PasswordView::class.java)
+            startActivity(intent)
+        }
         setContentView(R.layout.activity_register)
 
         email = findViewById(R.id.email)
@@ -42,9 +44,6 @@ class Register : AppCompatActivity() {
         passwordField = findViewById(R.id.passwordField)
         button = findViewById(R.id.registerButton)
         infoText = findViewById(R.id.loginInfoText)
-
-        emailPasswordActivity = EmailPasswordActivity()
-        emailPasswordActivity.init(applicationContext, this)
 
         button.setOnClickListener(){
             register()
