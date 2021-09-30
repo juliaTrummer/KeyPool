@@ -1,21 +1,26 @@
-package com.mobappdev.keypool.PwList
+package com.mobappdev.keypool.passwordlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobappdev.keypool.R
 
 class PasswordView : AppCompatActivity() {
 
-    private lateinit var pwList : MutableList<Password>
+    private lateinit var pwList : MutableList<KeyItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password)
+        supportActionBar?.hide()
         fillList()
         createList()
+    }
+
+    override fun onBackPressed(){
+        super.onBackPressed()
+        finishAffinity()
     }
 
     private fun createList(){
@@ -26,10 +31,7 @@ class PasswordView : AppCompatActivity() {
     }
 
     private fun fillList(){
-        pwList = ArrayList<Password>()
-        pwList.add(Password("test", 0, "tests"))
-        pwList.add(Password("test1", 1, "test11"))
-        pwList.add(Password("test", 0, "tests"))
-        pwList.add(Password("test1", 1, "test11"))
+        pwList = ArrayList<KeyItem>()
+
     }
 }

@@ -1,21 +1,15 @@
-package com.mobappdev.keypool.RegisterLogin
+package com.mobappdev.keypool.registerlogin
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.mobappdev.keypool.PwList.PasswordView
+import com.mobappdev.keypool.passwordlist.PasswordView
 
-class EmailPasswordActivity {
+class Authentication {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var context: Context
@@ -85,6 +79,7 @@ class EmailPasswordActivity {
     private fun updateUI(activity : Activity) {
         val intent = Intent(activity, PasswordView::class.java)
         activity.startActivity(intent)
+        activity.finish()
     }
 
     private fun reload() {

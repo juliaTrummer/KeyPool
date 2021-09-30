@@ -1,4 +1,4 @@
-package com.mobappdev.keypool.PwList
+package com.mobappdev.keypool.passwordlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

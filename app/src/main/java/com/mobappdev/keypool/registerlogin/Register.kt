@@ -1,16 +1,17 @@
-package com.mobappdev.keypool
+package com.mobappdev.keypool.registerlogin
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.mobappdev.keypool.PwList.PasswordView
-import com.mobappdev.keypool.RegisterLogin.EmailPasswordActivity
-import com.mobappdev.keypool.RegisterLogin.Login
+import com.mobappdev.keypool.R
+import com.mobappdev.keypool.registerlogin.Login
 
 class Register : AppCompatActivity() {
 
@@ -23,19 +24,16 @@ class Register : AppCompatActivity() {
     private lateinit var passwordField : TextInputLayout
     private lateinit var button : Button
     private lateinit var infoText : TextView
-    private lateinit var emailPasswordActivity: EmailPasswordActivity
+    private lateinit var emailPasswordActivity: Authentication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        emailPasswordActivity = EmailPasswordActivity()
-        emailPasswordActivity.init(applicationContext, this)
-        
-        if(emailPasswordActivity.isLoggedIn()){
-            val intent = Intent(this, PasswordView::class.java)
-            startActivity(intent)
-        }
         setContentView(R.layout.activity_register)
+
+        supportActionBar?.hide()
+
+        emailPasswordActivity = Authentication()
+        emailPasswordActivity.init(applicationContext, this)
 
         email = findViewById(R.id.email)
         emailField = findViewById(R.id.emailField)

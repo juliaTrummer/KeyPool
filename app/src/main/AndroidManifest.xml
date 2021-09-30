@@ -4,28 +4,34 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_keypool"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Keypool">
-        <activity android:name=".Register">
+        <activity android:name=".LoadingScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterLogin.Login"
-            android:parentActivityName=".Register">
+        <activity android:name=".registerlogin.Register"
+            android:parentActivityName=".registerlogin.Register">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Register" />
+                android:value=".registerlogin.Register" />
         </activity>
-        <activity android:name=".PwList.PasswordView"
-            android:parentActivityName=".RegisterLogin.Login">
+        <activity android:name=".registerlogin.Login"
+            android:parentActivityName=".registerlogin.Register">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RegisterLogin.Login" />
+                android:value=".registerlogin.Register" />
+        </activity>
+        <activity android:name=".passwordlist.PasswordView"
+            android:parentActivityName=".registerlogin.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".registerlogin.Login" />
         </activity>
     </application>
 
