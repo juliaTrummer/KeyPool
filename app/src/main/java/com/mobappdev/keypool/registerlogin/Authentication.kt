@@ -44,7 +44,6 @@ class Authentication {
             }
     }
 
-    //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
      fun signIn(email: String, password: String, emailField : TextInputLayout, passwordField : TextInputLayout) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(activity) { task ->

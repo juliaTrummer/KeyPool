@@ -53,6 +53,11 @@ class Register : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed(){
+        super.onBackPressed()
+        finishAffinity()
+    }
+
     private fun register(){
         var validEmail : Boolean = validateEmail(email.text.toString())
         var strongPW : Boolean = validatePassword(password.text.toString())

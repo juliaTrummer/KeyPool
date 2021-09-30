@@ -38,8 +38,6 @@ class Login : AppCompatActivity() {
         epa.init(applicationContext, this)
 
         button.setOnClickListener() {
-            spg = SafePasswordGeneration()
-            spg.generateSHA256(password.text.toString())
             epa.signIn(email.text.toString(), password.text.toString(), emailField, passwordField)
         }
 

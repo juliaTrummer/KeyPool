@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobappdev.keypool.R
+import com.mobappdev.keypool.savepwgeneration.SafePasswordGeneration
 
 class PasswordView : AppCompatActivity() {
 
     private lateinit var pwList : MutableList<KeyItem>
+    private lateinit var spg : SafePasswordGeneration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +18,9 @@ class PasswordView : AppCompatActivity() {
         supportActionBar?.hide()
         fillList()
         createList()
+
+        spg = SafePasswordGeneration()
+        spg.close("Password")
     }
 
     override fun onBackPressed(){
@@ -32,6 +37,5 @@ class PasswordView : AppCompatActivity() {
 
     private fun fillList(){
         pwList = ArrayList<KeyItem>()
-
     }
 }
