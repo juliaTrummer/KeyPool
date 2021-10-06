@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobappdev.keypool">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_keypool"
@@ -29,6 +29,12 @@
         </activity>
         <activity android:name=".passwordlist.PasswordView"
             android:parentActivityName=".registerlogin.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".registerlogin.Login" />
+        </activity>
+        <activity android:name=".addView.FormView"
+            android:parentActivityName=".addView.FormView">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".registerlogin.Login" />

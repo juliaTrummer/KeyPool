@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.mobappdev.keypool.R
-import com.mobappdev.keypool.savepwgeneration.SafePasswordGeneration
+import com.mobappdev.keypool.safepwgeneration.SafePasswordGeneration
 
 class Login : AppCompatActivity() {
 
